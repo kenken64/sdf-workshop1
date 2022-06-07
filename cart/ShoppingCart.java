@@ -71,6 +71,7 @@ public class ShoppingCart {
                     stop= true;
                     break;
                 default:
+                    System.out.println("Invalid Command");
             }
         }
         System.out.println("Thank you for shopping with us");
