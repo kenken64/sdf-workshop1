@@ -5,16 +5,12 @@ import java.io.Console;
 
 public class ShoppingCart {
     public static void main(String[] args){
-        System.out.println("Shopping cart");
+        System.out.println("Welcome to your Shopping cart");
         List<String> cart = new LinkedList<>();
         Console cons = System.console();
         String input;
         int delIndex;
         boolean stop= false;
-
-        cart.add("apple");
-        cart.add("orange");
-        cart.add("pear");
 
         // main loop
         while(!stop){
@@ -52,8 +48,35 @@ public class ShoppingCart {
                         System.out.println("Your cart is empty!");
                     }
                     break;
+                case "del":
+                    if (terms.length < 2){
+                        System.out.println("Please provide an index in order to delete");
+                    }else{
+                        try{
+                            delIndex = Integer.parseInt(terms[1]) - 1;
+                            System.out.println(delIndex);
+                            if(delIndex > 0 && delIndex < cart.size()){
+                                System.out.printf("Deleted %s from cart\n", cart.get(delIndex));
+                                cart.remove(delIndex);
+                            }else{
+                                showNoSuchItemToDel();
+                            }
+                        }catch(NumberFormatException e){
+                            showNoSuchItemToDel();
+                        }
+                        
+                    }
+                    break;
+                case "end":
+                    stop= true;
+                    break;
+                default:
             }
         }
-        
+        System.out.println("Thank you for shopping with us");
+    }
+
+    private static void showNoSuchItemToDel(){
+        System.out.println("No such item to delete");
     }
 }
