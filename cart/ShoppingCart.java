@@ -28,7 +28,7 @@ public class ShoppingCart {
                     for(int i=0; i < fruits.length; i++){
                         boolean found = false;
                         for(int j=0; j <cart.size(); j++){
-                            if(fruits[i].equals(cart.get(j))){
+                            if(fruits[i].toUpperCase().equals(cart.get(j).toUpperCase())){
                                 found = true ;
                                 break;
                             }
@@ -55,7 +55,7 @@ public class ShoppingCart {
                         try{
                             delIndex = Integer.parseInt(terms[1]) - 1;
                             System.out.println(delIndex);
-                            if(delIndex > 0 && delIndex < cart.size()){
+                            if(delIndex >= 0 && delIndex < cart.size()){
                                 System.out.printf("Deleted %s from cart\n", cart.get(delIndex));
                                 cart.remove(delIndex);
                             }else{
