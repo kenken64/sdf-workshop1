@@ -12,3 +12,11 @@ git add .
 git commit -m "test"
 git push origin main
 ```
+
+
+```
+git branch
+git branch checkout -b FeatureXYZ
+git branch checkout <branch name>
+git branch -delete <branch name>
+```
