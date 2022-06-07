@@ -22,20 +22,24 @@ public class ShoppingCart {
             System.out.printf("READ: %s\n", input);
             String[] terms = input.split(" ");
             String cmd = terms[0];
-
+            
             switch(cmd){
                 case "add":
-                    for(int i=1; i < terms.length; i++){
+                    String fruitsStr = terms[1];
+                    String fruitsReplaced = fruitsStr.replace(",", " ");
+                    String[] fruits = fruitsReplaced.split(" ");
+            
+                    for(int i=0; i < fruits.length; i++){
                         boolean found = false;
                         for(int j=0; j <cart.size(); j++){
-                            if(terms[i].equals(cart.get(j))){
+                            if(fruits[i].equals(cart.get(j))){
                                 found = true ;
                                 break;
                             }
                         }
                         if(!found){
-                            cart.add(terms[i]);
-                            System.out.printf("Added %s to cart\n", terms[i]);
+                            cart.add(fruits[i]);
+                            System.out.printf("Added %s to cart\n", fruits[i]);
                         }
                     }
                     break;
